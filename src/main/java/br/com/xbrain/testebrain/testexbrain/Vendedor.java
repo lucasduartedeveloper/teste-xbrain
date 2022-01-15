@@ -5,15 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-class Venda {
+class Vendedor {
 
   private @Id @GeneratedValue Long id;
   private DateTime dataHora;
   private Decimal valor;
 
-  Venda() {}
+  Vendedor() {}
 
-  Venda(Decimal valor) {
+  Vendedor(Decimal valor) {
 
   }
 
