@@ -11,7 +11,8 @@ class VendaController {
 	private VendaRepository repository;
 
 	@GetMapping
-	List<Venda> all() {
-		return repository.findAll();
+	public ResponseEntity<?> listarVendas() {
+		List<Venda> vendas=  repository.findAll();
+ 		return new ResponseEntity<>(vendas, HttpStatus.OK);
 	}
 }
