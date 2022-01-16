@@ -1,3 +1,5 @@
+package br.com.xbrain.testexbrain;
+
 import java.util.Objects;
 
 import lombok.Data;
@@ -10,8 +12,8 @@ import javax.persistence.Id;
 @Entity
 class Vendedor {
 
-  private @Id @GeneratedValue Long id;
+	private @Id @GeneratedValue Long id;
   
-  private String nome;
+	private String nome;
 
 }

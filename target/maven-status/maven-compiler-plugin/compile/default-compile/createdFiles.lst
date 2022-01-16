@@ -1,5 +1,7 @@
-VendaRepository.class
-Vendedor.class
-VendaController.class
+br/com/xbrain/testexbrain/VendaRepository.class
 br/com/xbrain/testexbrain/TesteXbrainApplication.class
-Venda.class
+br/com/xbrain/testexbrain/Vendedor.class
+br/com/xbrain/testexbrain/VendedorController.class
+br/com/xbrain/testexbrain/VendaController.class
+br/com/xbrain/testexbrain/VendedorRepository.class
+br/com/xbrain/testexbrain/Venda.class
