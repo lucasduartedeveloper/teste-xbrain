@@ -3,7 +3,7 @@ package br.com.xbrain.testexbrain;
 import java.util.List;
 import java.util.Date;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,7 +15,7 @@ interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 	"select "
 		+ "b.id as id, "
 		+ "b.nome as nome,"
-		+ "10 as vendas_periodo,"
+		+ "sum(a.valor) as vendas_periodo,"
 		+ "(select sum(c.valor) "
 			+ "from venda c "
 			+ "where c.vendedor_id = b.id "
@@ -24,9 +24,9 @@ interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 	+ "from venda a "
 	+ "left join vendedor b on a.vendedor_id = b.id "
 	+ "where a.data_hora >= :dataInicial and "
-	+ "a.data_hora <= :dataFinal "
+	+ "a.data_hora < :dataFinal "
 	+ "group by a.vendedor_id ", 
 	nativeQuery = true)
-	List<Vendedor> somarVendas(@Param("dataInicial") LocalDateTime dataInicio, @Param("dataFinal") LocalDateTime dataFinal);
+	List<Vendedor> somarVendas(@Param("dataInicial") Date dataInicio, @Param("dataFinal") Date dataFinal);
 	
 }

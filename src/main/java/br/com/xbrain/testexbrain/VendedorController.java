@@ -2,8 +2,9 @@ package br.com.xbrain.testexbrain;
 
 import java.util.List;
 import java.util.Date;
+import java.util.Calendar;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import org.springframework.web.bind.annotation.*;
@@ -40,12 +41,16 @@ class VendedorController {
 	public ResponseEntity<?> somarVendas(
 		@RequestParam("dataInicial")
 		@DateTimeFormat(pattern="dd/MM/yyyy") 
-		LocalDateTime dataInicial,  
+		Date dataInicial,  
 		@RequestParam("dataFinal")
 		@DateTimeFormat(pattern="dd/MM/yyyy")
-		LocalDateTime dataFinal) {
+		Date dataFinal) {
 
-		dataInicial = dataInicial.minusDays(1);
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dataFinal);
+		cal.add(Calendar.DATE, 1);
+		dataFinal = cal.getTime();
+
 		List<Vendedor> vendedores = repository.somarVendas(dataInicial, dataFinal);
 		return new ResponseEntity<>(vendedores,  HttpStatus.OK);
 	}

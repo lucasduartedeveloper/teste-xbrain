@@ -27,9 +27,28 @@ POST https://teste-xbrain.herokuapp.com/api/vendas
 
 - Retornar a lista de vendedores com os campos: nome, total de vendas do vendedor e média de vendas diária, conforme o período informado por parâmetro 
 
-GET https://teste-xbrain.herokuapp.com/api/vendedores/vendas?dataInicial=16/01/2022&dataFinal=16/01/2022
+GET https://teste-xbrain.herokuapp.com/api/vendedores/vendas?dataInicial=17/01/2022&dataFinal=17/01/2022
 ```
-...
+[
+{
+    "id": 1,
+    "nome": "Vendedor A",
+    "vendasTotal": 30.0,
+    "vendasPeriodo": 30.0
+  },
+  {
+    "id": 2,
+    "nome": "Vendedor B",
+    "vendasTotal": 20.0,
+    "vendasPeriodo": 20.0
+  },
+  {
+    "id": 3,
+    "nome": "Vendedor C",
+    "vendasTotal": 10.0,
+    "vendasPeriodo": 10.0
+  }
+]
 ```
 
 # Instruções:

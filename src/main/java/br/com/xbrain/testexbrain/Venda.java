@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.Date;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -31,6 +31,6 @@ class Venda {
 	private BigDecimal valor;
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss", timezone = "Brazil/East")
-	private LocalDateTime dataHora = LocalDateTime.now(); 
+	private Date dataHora = new Date();
 
 }
