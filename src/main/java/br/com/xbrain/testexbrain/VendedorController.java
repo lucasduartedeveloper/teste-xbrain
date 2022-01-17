@@ -1,6 +1,10 @@
 package br.com.xbrain.testexbrain;
 
 import java.util.List;
+import java.util.Date;
+
+import java.time.LocalDateTime;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,4 +35,19 @@ class VendedorController {
         		Vendedor vendedor = repository.save(request);
         		return new ResponseEntity<>(vendedor, HttpStatus.OK);
 	}
+
+	@GetMapping("/vendas")
+	public ResponseEntity<?> somarVendas(
+		@RequestParam("dataInicial")
+		@DateTimeFormat(pattern="dd/MM/yyyy") 
+		LocalDateTime dataInicial,  
+		@RequestParam("dataFinal")
+		@DateTimeFormat(pattern="dd/MM/yyyy")
+		LocalDateTime dataFinal) {
+
+		dataInicial = dataInicial.minusDays(1);
+		List<Vendedor> vendedores = repository.somarVendas(dataInicial, dataFinal);
+		return new ResponseEntity<>(vendedores,  HttpStatus.OK);
+	}
+
 }	

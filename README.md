@@ -10,7 +10,7 @@ https://teste-xbrain.herokuapp.com/
 POST https://teste-xbrain.herokuapp.com/api/vendedores
 ```
 {
-   "nome" : "Goku"
+   "nome" : "Vendedor A"
 }
 ```
 
@@ -19,14 +19,18 @@ POST https://teste-xbrain.herokuapp.com/api/vendas
 {
    "vendedor" : {
      "id" : 1,
-     "nome" : "Goku"
    },
-   "descricao" : "Kimono usado",
+   "descricao" : "Coisas",
    "valor" : 10.00
 }
 ```
 
 - Retornar a lista de vendedores com os campos: nome, total de vendas do vendedor e média de vendas diária, conforme o período informado por parâmetro 
+
+GET https://teste-xbrain.herokuapp.com/api/vendedores/vendas?dataInicial=16/01/2022&dataFinal=16/01/2022
+```
+...
+```
 
 # Instruções:
 Gostaríamos de ver o histórico de seus commits.

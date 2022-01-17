@@ -13,6 +13,8 @@ import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.Date;
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Data
@@ -23,12 +25,12 @@ class Venda {
 
 	private String descricao;
 
-	@OneToOne(fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.MERGE)
 	private Vendedor vendedor;
 
 	private BigDecimal valor;
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss", timezone = "Brazil/East")
-	private Date dataHora = new Date(); 
+	private LocalDateTime dataHora = LocalDateTime.now(); 
 
 }
